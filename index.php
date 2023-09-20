@@ -65,38 +65,17 @@
 				include "koneksi.php"; // Import koneksi ke database
 
 				// Query untuk mengambil data suhu dan kelembaban dari tabel
-				$query = "SELECT waktu, suhu, kelembaban FROM tbmonitor ORDER BY id DESC LIMIT 5";
-				$result = mysqli_query($koneksi, $query);
+				// $query = "SELECT waktu, suhu, kelembaban FROM tbmonitor ORDER BY id DESC LIMIT 5";
+				// $result = mysqli_query($koneksi, $query);
 
 				?>
 
 				<!-- Pada bagian PHP untuk menampilkan data dari MySQL dalam tabel -->
 				<div class="modal-body">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Waktu</th>
-								<th>Suhu (°C)</th>
-								<th>Kelembaban (%)</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-							if ($result) {
-								while ($row = mysqli_fetch_assoc($result)) {
-									echo "<tr>";
-									echo "<td>" . $row['waktu'] . "</td>";
-									echo "<td>" . $row['suhu'] . "°C</td>";
-									echo "<td>" . $row['kelembaban'] . "%</td>";
-									echo "</tr>";
-								}
-								mysqli_free_result($result);
-							} else {
-								echo "Gagal mengeksekusi query: " . mysqli_error($koneksi);
-							}
-							?>
-						</tbody>
-					</table>
+					<div id="link_wrapper">
+
+					</div>	
+
 				</div>
 
 				<div class="modal-footer">
@@ -109,3 +88,22 @@
 </body>
 
 </html>
+
+<script>
+function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("link_wrapper").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "server.php", true);
+  xhttp.send();
+}
+setInterval(function() {
+	loadXMLDoc();
+}, 1000);
+
+window.onLoad = loadXMLDoc;
+</script>
