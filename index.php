@@ -46,7 +46,9 @@
 	</center>
 
 	<!-- Tambahkan tombol "More info" di sini -->
-	<button type="button" class="btn btn-primary" id="more-info-button">More info</button>
+	<button type="button" class="btn btn-primary" id="more-info-button">Data lengkap</button>
+	<button type="button" class="btn btn-danger text-white" onclick="window.location.href='hapus.php'">Hapus Data</button>
+
 
 	<!-- Modal -->
 	<!-- Modal untuk SUHU -->
