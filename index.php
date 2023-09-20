@@ -26,15 +26,12 @@
 								modalOpen = true;
 							});
 						}
-						// setTimeout(loadContent, 1000);
 					},
 					error: function() {
 						console.error('Gagal memuat konten.');
 					}
 				});
 			}
-			
-
 
 			// Panggil fungsi untuk memuat konten secara periodik
 			loadContent();
@@ -49,14 +46,15 @@
 	</center>
 
 	<!-- Tambahkan tombol "More info" di sini -->
-	<a href="#" id="more-info-button">More info <i class="fas fa-arrow-circle-right"></i></a>
+	<button type="button" class="btn btn-primary" id="more-info-button">More info</button>
+
 	<!-- Modal -->
 	<!-- Modal untuk SUHU -->
 	<div class="modal fade" id="suhuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Ringkasan data</h5>
+					<h5 class="modal-title">Data Monitoring</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
